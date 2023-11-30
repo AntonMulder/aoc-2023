@@ -68,13 +68,13 @@ then
     touch "$new_dir/part_2.py"
     cat "$new_dir/part_1.py" >> "$new_dir/part_2.py"
 
-    status_code=$(curl -s --head -w %{http_code} https://adventofcode.com/2022/day/$day/input -o /dev/null)
+    status_code=$(curl -s --head -w %{http_code} https://adventofcode.com/2023/day/$day/input -o /dev/null)
     if [ $status_code = "400" ]
     then
       # Create data dir
       mkdir "$new_dir/data"
       # Get puzzle input
-      curl -s "https://adventofcode.com/2022/day/$day/input" -H "Cookie: session=$token" -o "$new_dir/data/puzzle_input.txt"
+      curl -s "https://adventofcode.com/2023/day/$day/input" -H "Cookie: session=$token" -o "$new_dir/data/puzzle_input.txt"
     fi
 else
     echo "Directory $new_dir already exists"
