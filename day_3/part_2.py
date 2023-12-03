@@ -28,9 +28,9 @@ def run(puzzle_input):
         for number in re.finditer(r"\d+", row):
             for x in range(number.span()[0], number.span()[1]):
                 try:
-                    if gear := next(_get_neighbors(y, x)):
-                        gears[gear[0]].append(int(number.group()))
-                        break
+                    gear = next(_get_neighbors(y, x))
+                    gears[gear[0]].append(int(number.group()))
+                    break
                 except StopIteration:
                     pass
 
